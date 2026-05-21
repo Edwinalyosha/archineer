@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <title>Services | Archineer Uganda LLP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/site.css">
+
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1C242F; }
+    ::-webkit-scrollbar-thumb { background: #436850; border-radius: 4px; }
+    .reveal {
+      opacity: 0;
+      transform: translateY(64px) scale(0.97);
+      transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active { opacity: 1; transform: translateY(0) scale(1); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { transition: opacity 0.3s ease; transform: none; }
+    }
+    .blueprint-grid {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+  </style>
+</head>
+
+<body class="bg-charcoal text-gray-200 font-normal antialiased selection:bg-accent selection:text-white">
+
+<!-- HEADER -->
+<header class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-charcoal/90 border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/images/logo.png" alt="Archineer Uganda LLP Logo" class="h-10 md:h-14 w-auto brightness-200">
+    </a>
+    <nav class="hidden lg:flex gap-8 text-xs tracking-widest text-gray-300 uppercase font-medium items-center">
+      <a href="index.html" class="hover:text-accent transition-colors">Home</a>
+      <a href="about.html" class="hover:text-accent transition-colors">About</a>
+      <a href="services.html" class="text-accent transition-colors">Services</a>
+      <a href="projects.html" class="hover:text-accent transition-colors">Projects</a>
+      <a href="blog.html" class="hover:text-accent transition-colors">Blog</a>
+      <a href="contact.html" class="border border-accent px-4 py-2 hover:bg-accent hover:text-charcoal transition-all">Contact</a>
+    </nav>
+    <button id="menu-btn" class="lg:hidden text-white focus:outline-none">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden bg-charcoal border-t border-white/10">
+    <div class="flex flex-col px-6 py-6 space-y-6 text-sm uppercase tracking-widest text-gray-300 font-medium">
+      <a href="index.html" class="hover:text-accent">Home</a>
+      <a href="about.html" class="hover:text-accent">About</a>
+      <a href="services.html" class="text-accent">Services</a>
+      <a href="projects.html" class="hover:text-accent">Projects</a>
+      <a href="blog.html" class="hover:text-accent">Blog</a>
+      <a href="contact.html" class="border border-accent px-4 py-2 text-center hover:bg-accent hover:text-charcoal transition-all">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="pt-40 pb-20 bg-navy relative blueprint-grid border-b border-white/5">
+  <div class="absolute inset-0 bg-navy/90"></div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+    <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">Disciplines</h2>
+    <h1 class="text-4xl md:text-6xl font-display font-black text-white uppercase tracking-tighter mb-6">
+      Our <span class="text-accent">Services</span>
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+      From first concept to final handover — integrated design and engineering under one roof.
+    </p>
+  </div>
+</section>
+
+<!-- SERVICE 01: Architectural Design -->
+<section class="py-24 bg-charcoal border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="h-80 overflow-hidden img-expand">
+        <img src="assets/images/services/architectural-design.png" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Architectural Design">
+      </div>
+      <div>
+        <p class="text-xs tracking-widest text-accent uppercase font-bold mb-4">01</p>
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6">Architectural Design</h2>
+        <p class="text-gray-400 leading-relaxed">Concept development, spatial planning, and full-scale design documentation tailored for functionality. We produce drawings that communicate clearly to both clients and contractors.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 02: Structural Engineering -->
+<section class="py-24 bg-darkgrey border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="md:order-2 h-80 overflow-hidden img-expand">
+        <img src="assets/images/services/structural-engineering.png" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Structural Engineering">
+      </div>
+      <div class="md:order-1">
+        <p class="text-xs tracking-widest text-accent uppercase font-bold mb-4">02</p>
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6">Structural Engineering</h2>
+        <p class="text-gray-400 leading-relaxed">Efficient systems designed for load endurance. We ensure the bones of the building are uncompromisingly safe — from foundation design to reinforced concrete detailing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 03: Construction & Supervision -->
+<section class="py-24 bg-charcoal border-b border-white/5">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="h-80 overflow-hidden img-expand">
+        <img src="assets/images/services/construction-management.png" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Construction Management">
+      </div>
+      <div>
+        <p class="text-xs tracking-widest text-accent uppercase font-bold mb-4">03</p>
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6">Construction & Supervision</h2>
+        <p class="text-gray-400 leading-relaxed">Direct on-site management and supervision. We ensure adherence to drawings, material specifications, and safety protocols throughout the build process.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE 04: Interiors & Landscaping -->
+<section class="py-24 bg-darkgrey">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-16 items-center">
+      <div class="md:order-2 h-80 overflow-hidden img-expand">
+        <img src="assets/images/services/interiors-landscaping.png" class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" alt="Interiors & Landscaping">
+      </div>
+      <div class="md:order-1">
+        <p class="text-xs tracking-widest text-accent uppercase font-bold mb-4">04</p>
+        <h2 class="text-3xl md:text-4xl font-display font-bold text-white mb-6">Interiors & Landscaping</h2>
+        <p class="text-gray-400 leading-relaxed">Integrating indoor environments with exterior surroundings to create cohesive, usable spaces. We design interiors that are functional, considered, and built to last.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 bg-charcoal border-t border-white/5 text-center">
+  <h3 class="text-2xl font-display font-bold text-white mb-4">Ready to start?</h3>
+  <p class="text-gray-400 mb-8">Let's talk about your project.</p>
+  <a href="contact.html" class="inline-block bg-accent text-white px-10 py-4 text-sm tracking-widest uppercase font-bold hover:bg-white hover:text-charcoal transition-all duration-300">
+    Get in Touch →
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black text-gray-500 py-10 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs tracking-widest uppercase font-medium">
+    <p>© 2026 Archineer Uganda LLP. All rights reserved.</p>
+    <div class="flex gap-6 mt-4 md:mt-0">
+      <a href="#" class="hover:text-white">Instagram</a>
+      <span>System: Operational</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll([
+      'section p.text-xs.tracking-widest.text-accent',
+      'section h2.text-3xl, section h2.text-4xl',
+      'section p.text-gray-400.leading-relaxed',
+      'section .h-80',
+      '.py-24.text-center h3, .py-24.text-center p, .py-24.text-center a'
+    ].join(', ')).forEach(function (el) { el.classList.add('reveal'); });
+  });
+</script>
+<script>
+  document.getElementById("menu-btn").addEventListener("click", function () {
+    document.getElementById("mobile-menu").classList.toggle("hidden");
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,9 @@
+# Claude Code
+CLAUDE.md
+memory/
+context/
+peers/
+
+# OS
+.DS_Store
+Thumbs.db

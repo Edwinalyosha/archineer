@@ -4,57 +4,33 @@
   <meta charset="UTF-8">
   <title>Archineer Uganda LLP | Better Spaces, Built Right</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            display: ['Montserrat', 'sans-serif'],
-          },
-          colors: {
-            charcoal: '#121214',
-            navy: '#0B1320',
-            darkgrey: '#1A1A1D',
-            accent: '#436850', // Professional green undertone
-          },
-          animation: {
-            // Updated pan animation to use robust transform
-            'pan-up': 'panUp 25s linear infinite alternate',
-            'fade-in-up': 'fadeInUp 0.8s ease-out forwards',
-          },
-          keyframes: {
-            panUp: {
-              '0%': { transform: 'translateY(0)' },
-              '100%': { transform: 'translateY(-10%)' },
-            },
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(30px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            }
-          }
-        }
-      }
-    }
-  </script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/site.css">
 
   <style>
     ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #121214; }
+    ::-webkit-scrollbar-track { background: #1C242F; }
     ::-webkit-scrollbar-thumb { background: #436850; border-radius: 4px; }
-    .reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
-    .reveal.active { opacity: 1; transform: translateY(0); }
+    .reveal {
+      opacity: 0;
+      transform: translateY(64px) scale(0.97);
+      transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active { opacity: 1; transform: translateY(0) scale(1); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { transition: opacity 0.3s ease; transform: none; }
+    }
     .blueprint-grid {
-      background-image: 
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
       background-size: 40px 40px;
     }
   </style>
@@ -62,72 +38,55 @@
 
 <body class="bg-charcoal text-gray-200 font-normal antialiased selection:bg-accent selection:text-white">
 
+<!-- HEADER -->
 <header class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-charcoal/90 border-b border-white/10">
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-    
-    <!-- Logo -->
     <a href="index.html" class="flex items-center gap-3">
       <img src="assets/images/logo.png" alt="Archineer Uganda LLP Logo" class="h-10 md:h-14 w-auto brightness-200">
     </a>
-
-    <!-- Desktop Nav -->
     <nav class="hidden lg:flex gap-8 text-xs tracking-widest text-gray-300 uppercase font-medium items-center">
-      <a href="#about" class="hover:text-accent transition-colors">About</a>
-      <a href="#values" class="hover:text-accent transition-colors">Values</a>
-      <a href="#services" class="hover:text-accent transition-colors">Services</a>
-      <a href="#projects" class="hover:text-accent transition-colors">Projects</a>
-      <a href="#team" class="hover:text-accent transition-colors">Team</a>
+      <a href="index.html" class="text-accent transition-colors">Home</a>
+      <a href="about.html" class="hover:text-accent transition-colors">About</a>
+      <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+      <a href="projects.html" class="hover:text-accent transition-colors">Projects</a>
       <a href="blog.html" class="hover:text-accent transition-colors">Blog</a>
-      <a href="#contact" class="border border-accent px-4 py-2 hover:bg-accent hover:text-charcoal transition-all">Contact</a>
+      <a href="contact.html" class="border border-accent px-4 py-2 hover:bg-accent hover:text-charcoal transition-all">Contact</a>
     </nav>
-
-    <!-- Mobile Hamburger -->
     <button id="menu-btn" class="lg:hidden text-white focus:outline-none">
       <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round"
-          d="M4 6h16M4 12h16M4 18h16"/>
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
       </svg>
     </button>
   </div>
-
-  <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden lg:hidden bg-charcoal border-t border-white/10">
     <div class="flex flex-col px-6 py-6 space-y-6 text-sm uppercase tracking-widest text-gray-300 font-medium">
-      <a href="#about" class="hover:text-accent">About</a>
-      <a href="#values" class="hover:text-accent">Values</a>
-      <a href="#services" class="hover:text-accent">Services</a>
-      <a href="#projects" class="hover:text-accent">Projects</a>
-      <a href="#team" class="hover:text-accent">Team</a>
+      <a href="index.html" class="text-accent">Home</a>
+      <a href="about.html" class="hover:text-accent">About</a>
+      <a href="services.html" class="hover:text-accent">Services</a>
+      <a href="projects.html" class="hover:text-accent">Projects</a>
       <a href="blog.html" class="hover:text-accent">Blog</a>
-      <a href="#contact" class="border border-accent px-4 py-2 text-center hover:bg-accent hover:text-charcoal transition-all">Contact</a>
+      <a href="contact.html" class="border border-accent px-4 py-2 text-center hover:bg-accent hover:text-charcoal transition-all">Contact</a>
     </div>
   </div>
 </header>
 
-
+<!-- HERO -->
 <section class="relative h-screen w-full overflow-hidden bg-black flex items-center justify-center">
-  <div class="absolute inset-x-0 top-0 z-0 h-full bg-black">
-  <video
-    src="assets/videos/hero-loop1.mp4"
-    autoplay
-    loop
-    muted
-    playsinline
-    preload="metadata"
-    poster="assets/images/hero-placeholder.jpg"
-    class="w-full h-full object-cover opacity-50">
-  </video>
-</div>
-
-  
+  <div class="absolute inset-0 z-0 bg-black">
+    <video
+      src="assets/videos/archineer hero.mp4"
+      autoplay loop muted playsinline
+      preload="metadata"
+      poster="assets/images/hero-placeholder.jpg"
+      class="w-full h-full object-cover opacity-50">
+    </video>
+  </div>
   <div class="absolute inset-0 z-0 blueprint-grid mix-blend-overlay opacity-40"></div>
   <div class="absolute inset-0 z-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-black/30"></div>
-
   <div class="relative z-10 text-center px-6 animate-fade-in-up">
     <h1 class="text-5xl md:text-7xl lg:text-9xl font-display font-black text-white uppercase tracking-tighter mb-6 leading-none">
       Archi<span class="text-accent">neer</span>
     </h1>
-    
     <div class="flex items-center justify-center gap-4 mb-10">
       <div class="h-[2px] w-16 bg-accent"></div>
       <p class="text-white tracking-[0.2em] uppercase text-base md:text-lg font-bold">
@@ -135,304 +94,146 @@
       </p>
       <div class="h-[2px] w-16 bg-accent"></div>
     </div>
-    
-    <a href="#projects" class="inline-block bg-accent text-white px-10 py-4 text-sm tracking-widest uppercase font-bold hover:bg-white hover:text-charcoal transition-all duration-300">
+    <a href="projects.html" class="inline-block bg-accent text-white px-10 py-4 text-sm tracking-widest uppercase font-bold hover:bg-white hover:text-charcoal transition-all duration-300">
       Explore Our Work
     </a>
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="py-32 bg-charcoal relative">
-  <div class="max-w-4xl mx-auto px-6 text-center reveal">
+  <div class="max-w-4xl mx-auto px-6 text-center">
     <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">01. Our Foundation</h2>
     <h3 class="text-3xl md:text-5xl font-display font-bold text-white mb-8">Better Spaces, Built Right.</h3>
-    
-    <p class="text-gray-300 leading-relaxed text-lg md:text-xl">
+    <p class="text-gray-300 leading-relaxed text-lg md:text-xl mb-10">
       <span class="text-white font-medium">Archineer Uganda LLP</span> is a multidisciplinary practice where design meets heavy-lifting. We integrate <span class="text-accent font-medium">architecture</span> with rigorous <span class="text-accent font-medium">civil engineering</span> to ensure what looks good on paper works in reality. From structural integrity to on-site execution, we deliver <span class="text-white font-medium">coordinated solutions</span> for residential, institutional, and commercial challenges.
     </p>
+    <a href="about.html" class="inline-block border border-white/20 text-gray-300 px-8 py-3 text-xs tracking-widest uppercase font-bold hover:border-accent hover:text-accent transition-all duration-300">
+      Meet the Team →
+    </a>
   </div>
 </section>
 
-<section id="values" class="py-32 bg-navy border-y border-white/5 relative blueprint-grid">
-    <div class="absolute inset-0 bg-navy/95"></div>
-    <div class="max-w-6xl mx-auto px-6 relative z-10">
-      <div class="text-center mb-16 reveal">
-        <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">02. Core Values</h2>
-        <h3 class="text-3xl md:text-4xl font-display font-bold text-white">What Sets Us Apart</h3>
-      </div>
-
-      <div class="grid md:grid-cols-2 gap-12 text-left">
-        <div class="reveal">
-            <h4 class="text-white font-display font-bold text-xl mb-4 flex items-center gap-3">
-                <span class="h-2 w-2 bg-accent"></span> Integrated Solutions
-            </h4>
-            <p class="text-gray-400 leading-relaxed">We provide both <span class="text-accent font-medium">professional design</span> and <span class="text-accent font-medium">construction services</span>. We make sure our concepts materialize on ground.</p>
-        </div>
-        <div class="reveal" style="transition-delay: 100ms;">
-            <h4 class="text-white font-display font-bold text-xl mb-4 flex items-center gap-3">
-                <span class="h-2 w-2 bg-accent"></span> Client-Centered Approach
-            </h4>
-            <p class="text-gray-400 leading-relaxed">We listen first, design second. Your goals, lifestyle, and values <span class="text-white font-medium">shape everything we do</span>.</p>
-        </div>
-        <div class="reveal" style="transition-delay: 200ms;">
-            <h4 class="text-white font-display font-bold text-xl mb-4 flex items-center gap-3">
-                <span class="h-2 w-2 bg-accent"></span> Reliable Partnership
-            </h4>
-            <p class="text-gray-400 leading-relaxed">From planning, to approvals to final execution, we stay <span class="text-accent font-medium">responsive, transparent, and accountable</span>.</p>
-        </div>
-        <div class="reveal" style="transition-delay: 300ms;">
-            <h4 class="text-white font-display font-bold text-xl mb-4 flex items-center gap-3">
-                <span class="h-2 w-2 bg-accent"></span> Human-Centered Thinking
-            </h4>
-            <p class="text-gray-400 leading-relaxed">We build for people, with people. That makes <span class="text-white font-medium">all the difference</span>.</p>
-        </div>
-      </div>
-    </div>
-</section>
-
+<!-- SERVICES -->
 <section id="services" class="py-32 bg-darkgrey">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16 reveal">
-      <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">03. Disciplines</h2>
+    <div class="text-center mb-16">
+      <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">02. Disciplines</h2>
       <h3 class="text-3xl md:text-4xl font-display font-bold text-white">Our Services</h3>
     </div>
-    
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
-      <div class="bg-charcoal border border-white/5 hover:border-accent/50 transition-colors reveal group overflow-hidden">
+      <div class="bg-charcoal border border-white/5 hover:border-accent/50 transition-colors group overflow-hidden">
         <div class="h-48 w-full overflow-hidden">
-            <img src="assets/images/services/architectural-design.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110" alt="Architectural Design">
+          <img src="assets/images/services/architectural-design.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 img-expand" alt="Architectural Design">
         </div>
         <div class="p-8">
-            <h4 class="text-white font-display font-bold mb-3 text-xl">Architectural Design</h4>
-            <p class="text-gray-400 text-sm leading-relaxed">Concept development, spatial planning, and full-scale design documentation tailored for functionality.</p>
+          <h4 class="text-white font-display font-bold mb-3 text-xl">Architectural Design</h4>
+          <p class="text-gray-400 text-sm leading-relaxed">Concept development, spatial planning, and full-scale design documentation tailored for functionality.</p>
         </div>
       </div>
-       <div class="bg-charcoal border border-white/5 hover:border-accent/50 transition-colors reveal group overflow-hidden" style="transition-delay: 100ms;">
+      <div class="bg-charcoal border border-white/5 hover:border-accent/50 transition-colors group overflow-hidden">
         <div class="h-48 w-full overflow-hidden">
-            <img src="assets/images/services/structural-engineering.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110" alt="Structural Engineering">
+          <img src="assets/images/services/structural-engineering.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 img-expand" alt="Structural Engineering">
         </div>
         <div class="p-8">
-            <h4 class="text-white font-display font-bold mb-3 text-xl">Structural Engineering</h4>
-            <p class="text-gray-400 text-sm leading-relaxed">Efficient systems designed for load endurance. We ensure the bones of the building are uncompromisingly safe.</p>
+          <h4 class="text-white font-display font-bold mb-3 text-xl">Structural Engineering</h4>
+          <p class="text-gray-400 text-sm leading-relaxed">Efficient systems designed for load endurance. We ensure the bones of the building are uncompromisingly safe.</p>
         </div>
       </div>
-      <div class="bg-charcoal border border-white/5 hover:border-accent/50 transition-colors reveal group overflow-hidden" style="transition-delay: 200ms;">
+      <div class="bg-charcoal border border-white/5 hover:border-accent/50 transition-colors group overflow-hidden">
         <div class="h-48 w-full overflow-hidden">
-            <img src="assets/images/services/construction-management.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110" alt="Construction Management">
+          <img src="assets/images/services/construction-management.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 img-expand" alt="Construction Management">
         </div>
         <div class="p-8">
-            <h4 class="text-white font-display font-bold mb-3 text-xl">Construction & Supervision</h4>
-            <p class="text-gray-400 text-sm leading-relaxed">Direct on-site management. We ensure adherence to drawings, material specs, and safety protocols.</p>
+          <h4 class="text-white font-display font-bold mb-3 text-xl">Construction & Supervision</h4>
+          <p class="text-gray-400 text-sm leading-relaxed">Direct on-site management. We ensure adherence to drawings, material specs, and safety protocols.</p>
         </div>
       </div>
-      <div class="bg-charcoal border border-white/5 hover:border-accent/50 transition-colors reveal group overflow-hidden" style="transition-delay: 300ms;">
+      <div class="bg-charcoal border border-white/5 hover:border-accent/50 transition-colors group overflow-hidden">
         <div class="h-48 w-full overflow-hidden">
-            <img src="assets/images/services/interiors-landscaping.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 transform group-hover:scale-110" alt="Interiors">
+          <img src="assets/images/services/interiors-landscaping.png" class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 img-expand" alt="Interiors & Landscaping">
         </div>
         <div class="p-8">
-            <h4 class="text-white font-display font-bold mb-3 text-xl">Interiors & Landscaping</h4>
-            <p class="text-gray-400 text-sm leading-relaxed">Integrating indoor environments with exterior surroundings to create cohesive, usable spaces.</p>
+          <h4 class="text-white font-display font-bold mb-3 text-xl">Interiors & Landscaping</h4>
+          <p class="text-gray-400 text-sm leading-relaxed">Integrating indoor environments with exterior surroundings to create cohesive, usable spaces.</p>
         </div>
       </div>
+    </div>
+    <div class="text-center mt-12">
+      <a href="services.html" class="inline-block border border-white/20 text-gray-300 px-8 py-3 text-xs tracking-widest uppercase font-bold hover:border-accent hover:text-accent transition-all duration-300">
+        View All Services →
+      </a>
     </div>
   </div>
 </section>
 
+<!-- FEATURED PROJECTS -->
 <section id="projects" class="py-32 bg-charcoal relative blueprint-grid border-y border-white/5">
   <div class="absolute inset-0 bg-charcoal/95"></div>
   <div class="max-w-7xl mx-auto px-6 relative z-10">
-    <div class="text-center mb-20 reveal">
-      <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">04. The Portfolio</h2>
+    <div class="text-center mb-20">
+      <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">03. The Portfolio</h2>
       <h3 class="text-3xl md:text-4xl font-display font-bold text-white">Selected Projects</h3>
-      <p class="text-gray-400 mt-4 max-w-xl mx-auto">A selection of our recent projects.</p>
+      <p class="text-gray-400 mt-4 max-w-xl mx-auto">A cross-section of our recent work.</p>
     </div>
 
-    <div class="mb-32 reveal">
-        <div class="md:flex justify-between items-end mb-8 border-b border-white/10 pb-6">
-          <div>
-              <h4 class="text-2xl md:text-3xl font-display font-bold text-white mb-2">Residential Apartments</h4>
-              <p class="text-gray-400 max-w-2xl">Modern high-rise residential apartment block.</p>
-          </div>
-          <span class="mt-4 md:mt-0 text-xs tracking-widest text-accent uppercase border border-accent px-3 py-1 font-bold">Lugogo</span>
-        </div>
-        <div class="grid md:grid-cols-4 gap-4">
-          <img src="assets/images/projects/lugogo-apartments-01.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-          <img src="assets/images/projects/lugogo-apartments-02.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-          <img src="assets/images/projects/lugogo-apartments-03.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-          <img src="assets/images/projects/lugogo-apartments-04.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-        </div>
-      </div>
-<div class="mb-32 reveal">
-        <div class="md:flex justify-between items-end mb-8 border-b border-white/10 pb-6">
-            <div>
-                <h4 class="text-2xl md:text-3xl font-display font-bold text-white mb-2">3-Bedroom Residential House</h4>
-                <p class="text-gray-400 max-w-2xl">Architectural concept and structural detailing for a family home with Modernist & Mediterranean Design elements.</p>
-            </div>
-            <span class="mt-4 md:mt-0 text-xs tracking-widest text-accent uppercase border border-accent px-3 py-1 font-bold">Kasayi, Mukono Municipality</span>
-          </div>
-      <div class="grid md:grid-cols-4 gap-4">
-        <img src="assets/images/projects/residential-kasayi-01.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-        <img src="assets/images/projects/residential-kasayi-02.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-        <img src="assets/images/projects/residential-kasayi-03.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-        <img src="assets/images/projects/residential-kasayi-04.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-      </div>
-    </div>
-    <div class="mb-32 reveal">
+    <div class="mb-24">
       <div class="md:flex justify-between items-end mb-8 border-b border-white/10 pb-6">
         <div>
-            <h4 class="text-2xl md:text-3xl font-display font-bold text-white mb-2">St. Balikuddembe S.S.S. Admin Block</h4>
-            <p class="text-gray-400 max-w-2xl">Complete concept, detailed design and site supervision for a multi-story school facility.</p>
+          <h4 class="text-2xl md:text-3xl font-display font-bold text-white mb-2">Residential Apartments</h4>
+          <p class="text-gray-400 max-w-2xl">Modern high-rise residential apartment block.</p>
+        </div>
+        <span class="mt-4 md:mt-0 text-xs tracking-widest text-accent uppercase border border-accent px-3 py-1 font-bold">Lugogo</span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        <img src="assets/images/projects/lugogo-apartments-01.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey img-expand" alt="Lugogo Apartments">
+        <img src="assets/images/projects/lugogo-apartments-02.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey img-expand" alt="Lugogo Apartments">
+      </div>
+    </div>
+
+    <div class="mb-24">
+      <div class="md:flex justify-between items-end mb-8 border-b border-white/10 pb-6">
+        <div>
+          <h4 class="text-2xl md:text-3xl font-display font-bold text-white mb-2">St. Balikuddembe S.S.S. Admin Block</h4>
+          <p class="text-gray-400 max-w-2xl">Complete concept, detailed design and site supervision for a multi-story school facility.</p>
         </div>
         <span class="mt-4 md:mt-0 text-xs tracking-widest text-accent uppercase border border-accent px-3 py-1 font-bold">Mukono District</span>
       </div>
-      <div class="grid md:grid-cols-4 gap-4">
-        <img src="assets/images/projects/balikuddembe-01.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-        <img src="assets/images/projects/balikuddembe-02.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-        <img src="assets/images/projects/balikuddembe-03.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-        <img src="assets/images/projects/balikuddembe-04.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-      </div>
-    </div>
-<div class="mb-32 reveal">
-        <div class="md:flex justify-between items-end mb-8 border-b border-white/10 pb-6">
-            <div>
-                <h4 class="text-2xl md:text-3xl font-display font-bold text-white mb-2">4-Bedroom Residential House</h4>
-                <p class="text-gray-400 max-w-2xl">Architectural design for a family home with Midcentury Modern Architecture style.</p>
-            </div>
-            <span class="mt-4 md:mt-0 text-xs tracking-widest text-accent uppercase border border-accent px-3 py-1 font-bold">Buwambo, Kasangati</span>
-          </div>
-      <div class="grid md:grid-cols-4 gap-4">
-        <img src="assets/images/projects/buwambo-01.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-        <img src="assets/images/projects/buwambo-02.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-        <img src="assets/images/projects/buwambo-03.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-        <img src="assets/images/projects/buwambo-04.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-      </div>
-    </div>
-<div class="mb-32 reveal">
-        <div class="md:flex justify-between items-end mb-8 border-b border-white/10 pb-6">
-            <div>
-                <h4 class="text-2xl md:text-3xl font-display font-bold text-white mb-2">Mixed Use Development</h4>
-                <p class="text-gray-400 max-w-2xl">Architectural & Structural Design for a commercial mixed use structure with residencial apartments on upper floors.</p>
-            </div>
-            <span class="mt-4 md:mt-0 text-xs tracking-widest text-accent uppercase border border-accent px-3 py-1 font-bold">Nsasa, Kira Division</span>
-          </div>
-      <div class="grid md:grid-cols-4 gap-4">
-        <img src="assets/images/projects/nsasa-01.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-        <img src="assets/images/projects/nsasa-02.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-        <img src="assets/images/projects/nsasa-03.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-        <img src="assets/images/projects/nsasa-04.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-      </div>
-    </div>
-<div class="mb-32 reveal">
-        <div class="md:flex justify-between items-end mb-8 border-b border-white/10 pb-6">
-            <div>
-                <h4 class="text-2xl md:text-3xl font-display font-bold text-white mb-2">Residential Apartments</h4>
-                <p class="text-gray-400 max-w-2xl">Architectural & Structural Design for 2 & 3BR residencial apartments.</p>
-            </div>
-            <span class="mt-4 md:mt-0 text-xs tracking-widest text-accent uppercase border border-accent px-3 py-1 font-bold">Nsasa, Kira Division</span>
-          </div>
-      <div class="grid md:grid-cols-4 gap-4">
-        <img src="assets/images/projects/bajjo-01.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
-        <img src="assets/images/projects/bajjo-04.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey col-span-2">
+      <div class="grid md:grid-cols-2 gap-4">
+        <img src="assets/images/projects/balikuddembe-01.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey img-expand" alt="Balikuddembe Admin Block">
+        <img src="assets/images/projects/balikuddembe-02.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey img-expand" alt="Balikuddembe Admin Block">
       </div>
     </div>
 
-    <div class="mt-32 pt-16 border-t border-white/10 reveal">
-        <div class="text-center mb-10">
-            <h4 class="text-2xl font-display font-bold text-white flex items-center justify-center gap-3">
-                <span class="h-[2px] w-8 bg-accent"></span> 
-                Construction & Site Gallery 
-                <span class="h-[2px] w-8 bg-accent"></span>
-            </h4>
-            <p class="text-gray-500 mt-2 text-sm uppercase tracking-widest">Active Sites • Manpower • Execution</p>
+    <div class="mb-16">
+      <div class="md:flex justify-between items-end mb-8 border-b border-white/10 pb-6">
+        <div>
+          <h4 class="text-2xl md:text-3xl font-display font-bold text-white mb-2">Mixed Use Development</h4>
+          <p class="text-gray-400 max-w-2xl">Architectural & Structural Design for a commercial mixed use structure with residential apartments on upper floors.</p>
         </div>
-        
-        <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-3">
-            <div class="w-full h-48 border-2 border-dashed border-white/10 bg-white/5 flex flex-col items-center justify-center text-gray-600 hover:border-accent/50 transition-colors"> 
-            </div>
-<img src="assets/images/site/site-01.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-02.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-03.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-04.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-05.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-06.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-07.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-08.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-09.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-10.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-11.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-12.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-13.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-14.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-15.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-16.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-17.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-18.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-19.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-20.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-21.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-22.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-23.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-<img src="assets/images/site/site-24.png" class="w-full h-48 object-cover border border-white/5 bg-darkgrey">
-                <span class="text-2xl mb-1">+</span><span class="text-xs uppercase tracking-widest">Add Image</span>
-            </div>
+        <span class="mt-4 md:mt-0 text-xs tracking-widest text-accent uppercase border border-accent px-3 py-1 font-bold">Nsasa, Kira Division</span>
+      </div>
+      <div class="grid md:grid-cols-2 gap-4">
+        <img src="assets/images/projects/nsasa-01.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey img-expand" alt="Nsasa Mixed Use">
+        <img src="assets/images/projects/nsasa-02.png" class="w-full h-72 object-cover grayscale hover:grayscale-0 transition-all duration-500 border border-white/5 bg-darkgrey img-expand" alt="Nsasa Mixed Use">
+      </div>
+    </div>
+
+    <div class="text-center pt-10 border-t border-white/10">
+      <a href="projects.html" class="inline-block bg-accent text-white px-10 py-4 text-sm tracking-widest uppercase font-bold hover:bg-white hover:text-charcoal transition-all duration-300">
+        View All Projects →
+      </a>
+    </div>
   </div>
 </section>
 
-<section id="team" class="py-32 bg-navy">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-20 reveal">
-      <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">05. The Core</h2>
-      <h3 class="text-3xl md:text-4xl font-display font-bold text-white">Our Team</h3>
-    </div>
-    
-    <div class="grid md:grid-cols-3 gap-x-12 gap-y-16 text-left">
-      <div class="reveal border-l-2 border-white/10 pl-6 hover:border-accent transition-colors">
-        <h4 class="text-white font-bold text-lg">Mbuga Solomon Munyweeza</h4>
-        <p class="text-xs tracking-widest text-accent uppercase mb-3 mt-1 font-medium">Partner · Design Lead</p>
-        <p class="text-sm text-gray-400 italic">"Good design is what survives construction, anything less is a sketch."</p>
-      </div>
-
-      <div class="reveal border-l-2 border-white/10 pl-6 hover:border-accent transition-colors">
-        <h4 class="text-white font-bold text-lg">Sekyondwa Edwin Alyosha</h4>
-        <p class="text-xs tracking-widest text-accent uppercase mb-3 mt-1 font-medium">Partner · Civil Eng. · International Ops</p>
-        <p class="text-sm text-gray-400 italic">"Grounded engineering decisions shape lasting structures."</p>
-      </div>
-
-      <div class="reveal border-l-2 border-white/10 pl-6 hover:border-accent transition-colors">
-        <h4 class="text-white font-bold text-lg">Muhanguzi Modecai Stanly</h4>
-        <p class="text-xs tracking-widest text-accent uppercase mb-3 mt-1 font-medium">Civil Eng. · Field Operations</p>
-        <p class="text-sm text-gray-400 italic">"Execution on site is where drawings become reality."</p>
-      </div>
-
-      <div class="reveal border-l-2 border-white/10 pl-6 hover:border-accent transition-colors">
-        <h4 class="text-white font-bold text-lg">Jaspauline Banza Lubambu</h4>
-        <p class="text-xs tracking-widest text-accent uppercase mb-3 mt-1 font-medium">Architect & Interior Designer</p>
-        <p class="text-sm text-gray-400 italic">"Authenticity in a space is all that makes a difference."</p>
-      </div>
-
-      <div class="reveal border-l-2 border-white/10 pl-6 hover:border-accent transition-colors">
-        <h4 class="text-white font-bold text-lg">Angeango Faith Wanadi</h4>
-        <p class="text-xs tracking-widest text-accent uppercase mb-3 mt-1 font-medium">Civil & Environmental Engineer</p>
-        <p class="text-sm text-gray-400 italic">"Engineering solutions must be practical and resilient."</p>
-      </div>
-
-      <div class="reveal border-l-2 border-white/10 pl-6 hover:border-accent transition-colors">
-        <h4 class="text-white font-bold text-lg">Kirabo Bruno</h4>
-        <p class="text-xs tracking-widest text-accent uppercase mb-3 mt-1 font-medium">Civil Engineer</p>
-        <p class="text-sm text-gray-400 italic">"Precision in structure safeguards long-term performance."</p>
-      </div>
-    
-</section>
-
+<!-- CONTACT -->
 <section id="contact" class="py-32 bg-darkgrey border-t border-white/5 relative">
-  <div class="max-w-4xl mx-auto px-6 text-center reveal">
-    <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">06. Initiate</h2>
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">04. Initiate</h2>
     <h3 class="text-3xl md:text-4xl font-display font-bold text-white mb-6">Start a Project</h3>
-    <p class="text-gray-300 mb-10 max-w-lg mx-auto text-lg">
-      Ready to build? Reach out to us.
-    </p>
-    
-    <div class="inline-block bg-charcoal border border-white/10 p-10 text-left w-full max-w-md mx-auto shadow-2xl shadow-black/50">
+    <p class="text-gray-300 mb-10 max-w-lg mx-auto text-lg">Ready to build? Reach out to us.</p>
+    <div class="inline-block bg-charcoal border border-white/10 p-10 text-left w-full max-w-md mx-auto shadow-2xl shadow-black/50 mb-8">
       <div class="mb-8">
         <p class="text-xs tracking-widest text-gray-500 uppercase mb-2 font-bold">Electronic Mail</p>
         <a href="mailto:arch.ug@proton.me" class="text-white hover:text-accent transition-colors text-xl font-medium">arch.ug@proton.me</a>
@@ -444,43 +245,42 @@
         <p class="text-white text-lg font-medium">(+1) 240 354 5427</p>
       </div>
     </div>
+    <div>
+      <a href="contact.html" class="inline-block border border-white/20 text-gray-300 px-8 py-3 text-xs tracking-widest uppercase font-bold hover:border-accent hover:text-accent transition-all duration-300">
+        Full Contact Page →
+      </a>
+    </div>
   </div>
 </section>
 
+<!-- FOOTER -->
 <footer class="bg-black text-gray-500 py-10 border-t border-white/10">
   <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs tracking-widest uppercase font-medium">
     <p>© 2026 Archineer Uganda LLP. All rights reserved.</p>
     <div class="flex gap-6 mt-4 md:mt-0">
-        <a href="#" class="hover:text-white">Instagram</a>
-        <span>System: Operational</span>
+      <a href="#" class="hover:text-white">Instagram</a>
+      <span>System: Operational</span>
     </div>
   </div>
 </footer>
 
 <script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const reveals = document.querySelectorAll(".reveal");
-
-    const revealOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
-
-    reveals.forEach(reveal => {
-      revealOnScroll.observe(reveal);
-    });
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll([
+      '#about h2, #about h3, #about p, #about a',
+      '#services h2, #services h3, #services .grid > div, #services > div > div:last-child',
+      '#projects .text-center h2, #projects .text-center h3, #projects .text-center p',
+      '#projects h4, #projects .md\\:flex p, #projects .md\\:flex span',
+      '#projects img',
+      '#projects > div > div:last-child',
+      '#contact h2, #contact h3, #contact > div > p, #contact .inline-block'
+    ].join(', ')).forEach(function (el) { el.classList.add('reveal'); });
   });
 </script>
+<script src="assets/js/site.js"></script>
 <script>
-  const menuBtn = document.getElementById("menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
-
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
+  document.getElementById("menu-btn").addEventListener("click", function () {
+    document.getElementById("mobile-menu").classList.toggle("hidden");
   });
 </script>
 

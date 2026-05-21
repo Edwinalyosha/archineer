@@ -10,29 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
-  
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            display: ['Montserrat', 'sans-serif'],
-          },
-          colors: {
-            charcoal: '#121214',
-            navy: '#0B1320',
-            darkgrey: '#1A1A1D',
-            accent: '#436850', // Professional green undertone
-          }
-        }
-      }
-    }
-  </script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/site.css">
 
   <style>
     ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #121214; }
+    ::-webkit-scrollbar-track { background: #1C242F; }
     ::-webkit-scrollbar-thumb { background: #436850; border-radius: 4px; }
     .blueprint-grid {
       background-image: 
@@ -49,18 +32,32 @@
   <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
     
     <a href="index.html" class="flex items-center gap-3">
-      <img src="assets/images/logo.png" alt="Archineer Uganda LLP Logo" class="h-14 w-auto brightness-200">
+      <img src="assets/images/logo.png" alt="Archineer Uganda LLP Logo" class="h-10 md:h-14 w-auto brightness-200">
     </a>
 
-    <nav class="hidden lg:flex gap-8 text-xs md:text-sm tracking-widest text-gray-300 uppercase font-medium">
-      <a href="index.html#about" class="hover:text-accent transition-colors">About</a>
-      <a href="index.html#values" class="hover:text-accent transition-colors">Values</a>
-      <a href="index.html#services" class="hover:text-accent transition-colors">Services</a>
-      <a href="index.html#projects" class="hover:text-accent transition-colors">Projects</a>
-      <a href="index.html#team" class="hover:text-accent transition-colors">Team</a>
+    <nav class="hidden lg:flex gap-8 text-xs tracking-widest text-gray-300 uppercase font-medium items-center">
+      <a href="index.html" class="hover:text-accent transition-colors">Home</a>
+      <a href="about.html" class="hover:text-accent transition-colors">About</a>
+      <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+      <a href="projects.html" class="hover:text-accent transition-colors">Projects</a>
       <a href="blog.html" class="text-accent transition-colors">Blog</a>
-      <a href="index.html#contact" class="hover:text-accent transition-colors border border-accent px-4 py-2 ml-4">Contact</a>
+      <a href="contact.html" class="border border-accent px-4 py-2 hover:bg-accent hover:text-charcoal transition-all">Contact</a>
     </nav>
+    <button id="menu-btn" class="lg:hidden text-white focus:outline-none">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden bg-charcoal border-t border-white/10">
+    <div class="flex flex-col px-6 py-6 space-y-6 text-sm uppercase tracking-widest text-gray-300 font-medium">
+      <a href="index.html" class="hover:text-accent">Home</a>
+      <a href="about.html" class="hover:text-accent">About</a>
+      <a href="services.html" class="hover:text-accent">Services</a>
+      <a href="projects.html" class="hover:text-accent">Projects</a>
+      <a href="blog.html" class="text-accent">Blog</a>
+      <a href="contact.html" class="border border-accent px-4 py-2 text-center hover:bg-accent hover:text-charcoal transition-all">Contact</a>
+    </div>
   </div>
 </header>
 
@@ -127,5 +124,11 @@
   </div>
 </footer>
 
+<script src="assets/js/site.js"></script>
+<script>
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+  menuBtn.addEventListener("click", () => mobileMenu.classList.toggle("hidden"));
+</script>
 </body>
 </html>

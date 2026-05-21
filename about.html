@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <title>About | Archineer Uganda LLP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/site.css">
+
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1C242F; }
+    ::-webkit-scrollbar-thumb { background: #436850; border-radius: 4px; }
+    .reveal {
+      opacity: 0;
+      transform: translateY(64px) scale(0.97);
+      transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active { opacity: 1; transform: translateY(0) scale(1); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { transition: opacity 0.3s ease; transform: none; }
+    }
+    .blueprint-grid {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+  </style>
+</head>
+
+<body class="bg-charcoal text-gray-200 font-normal antialiased selection:bg-accent selection:text-white">
+
+<!-- HEADER -->
+<header class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-charcoal/90 border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/images/logo.png" alt="Archineer Uganda LLP Logo" class="h-10 md:h-14 w-auto brightness-200">
+    </a>
+    <nav class="hidden lg:flex gap-8 text-xs tracking-widest text-gray-300 uppercase font-medium items-center">
+      <a href="index.html" class="hover:text-accent transition-colors">Home</a>
+      <a href="about.html" class="text-accent transition-colors">About</a>
+      <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+      <a href="projects.html" class="hover:text-accent transition-colors">Projects</a>
+      <a href="blog.html" class="hover:text-accent transition-colors">Blog</a>
+      <a href="contact.html" class="border border-accent px-4 py-2 hover:bg-accent hover:text-charcoal transition-all">Contact</a>
+    </nav>
+    <button id="menu-btn" class="lg:hidden text-white focus:outline-none">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden bg-charcoal border-t border-white/10">
+    <div class="flex flex-col px-6 py-6 space-y-6 text-sm uppercase tracking-widest text-gray-300 font-medium">
+      <a href="index.html" class="hover:text-accent">Home</a>
+      <a href="about.html" class="text-accent">About</a>
+      <a href="services.html" class="hover:text-accent">Services</a>
+      <a href="projects.html" class="hover:text-accent">Projects</a>
+      <a href="blog.html" class="hover:text-accent">Blog</a>
+      <a href="contact.html" class="border border-accent px-4 py-2 text-center hover:bg-accent hover:text-charcoal transition-all">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="pt-40 pb-20 bg-navy relative blueprint-grid border-b border-white/5">
+  <div class="absolute inset-0 bg-navy/90"></div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+    <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">Who We Are</h2>
+    <h1 class="text-4xl md:text-6xl font-display font-black text-white uppercase tracking-tighter mb-6">
+      About <span class="text-accent">Archineer</span>
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+      A multidisciplinary practice built on the conviction that great architecture and rigorous engineering are inseparable.
+    </p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-32 bg-charcoal">
+  <div class="max-w-4xl mx-auto px-6 text-center">
+    <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">Our Foundation</h2>
+    <h3 class="text-3xl md:text-5xl font-display font-bold text-white mb-8">Better Spaces, Built Right.</h3>
+    <p class="text-gray-300 leading-relaxed text-lg md:text-xl">
+      <span class="text-white font-medium">Archineer Uganda LLP</span> is a multidisciplinary practice where design meets heavy-lifting. We integrate <span class="text-accent font-medium">architecture</span> with rigorous <span class="text-accent font-medium">civil engineering</span> to ensure what looks good on paper works in reality. From structural integrity to on-site execution, we deliver <span class="text-white font-medium">coordinated solutions</span> for residential, institutional, and commercial challenges.
+    </p>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section id="values" class="py-32 bg-navy border-y border-white/5 relative blueprint-grid">
+  <div class="absolute inset-0 bg-navy/95"></div>
+  <div class="max-w-6xl mx-auto px-6 relative z-10">
+    <div class="text-center mb-16">
+      <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">Core Values</h2>
+      <h3 class="text-3xl md:text-4xl font-display font-bold text-white">What Sets Us Apart</h3>
+    </div>
+    <div class="grid md:grid-cols-2 gap-12 text-left">
+      <div>
+        <h4 class="text-white font-display font-bold text-xl mb-4 flex items-center gap-3">
+          <span class="h-2 w-2 bg-accent"></span> Integrated Solutions
+        </h4>
+        <p class="text-gray-400 leading-relaxed">We provide both <span class="text-accent font-medium">professional design</span> and <span class="text-accent font-medium">construction services</span>. We make sure our concepts materialize on ground.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-display font-bold text-xl mb-4 flex items-center gap-3">
+          <span class="h-2 w-2 bg-accent"></span> Client-Centered Approach
+        </h4>
+        <p class="text-gray-400 leading-relaxed">We listen first, design second. Your goals, lifestyle, and values <span class="text-white font-medium">shape everything we do</span>.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-display font-bold text-xl mb-4 flex items-center gap-3">
+          <span class="h-2 w-2 bg-accent"></span> Reliable Partnership
+        </h4>
+        <p class="text-gray-400 leading-relaxed">From planning, to approvals to final execution, we stay <span class="text-accent font-medium">responsive, transparent, and accountable</span>.</p>
+      </div>
+      <div>
+        <h4 class="text-white font-display font-bold text-xl mb-4 flex items-center gap-3">
+          <span class="h-2 w-2 bg-accent"></span> Human-Centered Thinking
+        </h4>
+        <p class="text-gray-400 leading-relaxed">We build for people, with people. That makes <span class="text-white font-medium">all the difference</span>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="py-32 bg-charcoal">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="text-center mb-20">
+      <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">The Core</h2>
+      <h3 class="text-3xl md:text-4xl font-display font-bold text-white">Our Team</h3>
+    </div>
+    <div class="grid md:grid-cols-3 gap-x-12 gap-y-16 text-left">
+      <div class="border-l-2 border-white/10 pl-6 hover:border-accent transition-colors duration-300">
+        <h4 class="text-white font-bold text-lg">Mbuga Solomon Munyweeza</h4>
+        <p class="text-xs tracking-widest text-accent uppercase mb-3 mt-1 font-medium">Partner · Design Lead</p>
+        <p class="text-sm text-gray-400 italic">"Good design is what survives construction, anything less is a sketch."</p>
+      </div>
+      <div class="border-l-2 border-white/10 pl-6 hover:border-accent transition-colors duration-300">
+        <h4 class="text-white font-bold text-lg">Sekyondwa Edwin Alyosha</h4>
+        <p class="text-xs tracking-widest text-accent uppercase mb-3 mt-1 font-medium">Partner · Civil Eng. · International Ops</p>
+        <p class="text-sm text-gray-400 italic">"Grounded engineering decisions shape lasting structures."</p>
+      </div>
+      <div class="border-l-2 border-white/10 pl-6 hover:border-accent transition-colors duration-300">
+        <h4 class="text-white font-bold text-lg">Muhanguzi Modecai Stanly</h4>
+        <p class="text-xs tracking-widest text-accent uppercase mb-3 mt-1 font-medium">Civil Eng. · Field Operations</p>
+        <p class="text-sm text-gray-400 italic">"Execution on site is where drawings become reality."</p>
+      </div>
+      <div class="border-l-2 border-white/10 pl-6 hover:border-accent transition-colors duration-300">
+        <h4 class="text-white font-bold text-lg">Jaspauline Banza Lubambu</h4>
+        <p class="text-xs tracking-widest text-accent uppercase mb-3 mt-1 font-medium">Architect & Interior Designer</p>
+        <p class="text-sm text-gray-400 italic">"Authenticity in a space is all that makes a difference."</p>
+      </div>
+      <div class="border-l-2 border-white/10 pl-6 hover:border-accent transition-colors duration-300">
+        <h4 class="text-white font-bold text-lg">Angeango Faith Wanadi</h4>
+        <p class="text-xs tracking-widest text-accent uppercase mb-3 mt-1 font-medium">Civil & Environmental Engineer</p>
+        <p class="text-sm text-gray-400 italic">"Engineering solutions must be practical and resilient."</p>
+      </div>
+      <div class="border-l-2 border-white/10 pl-6 hover:border-accent transition-colors duration-300">
+        <h4 class="text-white font-bold text-lg">Kirabo Bruno</h4>
+        <p class="text-xs tracking-widest text-accent uppercase mb-3 mt-1 font-medium">Civil Engineer</p>
+        <p class="text-sm text-gray-400 italic">"Precision in structure safeguards long-term performance."</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="py-24 bg-darkgrey border-t border-white/5 text-center">
+  <p class="text-gray-400 mb-6 text-lg">Ready to work with us?</p>
+  <a href="contact.html" class="inline-block bg-accent text-white px-10 py-4 text-sm tracking-widest uppercase font-bold hover:bg-white hover:text-charcoal transition-all duration-300">
+    Start a Project →
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black text-gray-500 py-10 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs tracking-widest uppercase font-medium">
+    <p>© 2026 Archineer Uganda LLP. All rights reserved.</p>
+    <div class="flex gap-6 mt-4 md:mt-0">
+      <a href="#" class="hover:text-white">Instagram</a>
+      <span>System: Operational</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll([
+      '#about h2, #about h3, #about p',
+      '#values h2, #values h3, #values .grid > div',
+      '#team h2, #team h3, #team .border-l-2'
+    ].join(', ')).forEach(function (el) { el.classList.add('reveal'); });
+  });
+</script>
+<script>
+  document.getElementById("menu-btn").addEventListener("click", function () {
+    document.getElementById("mobile-menu").classList.toggle("hidden");
+  });
+</script>
+
+</body>
+</html>

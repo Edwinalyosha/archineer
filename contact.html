@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact | Archineer Uganda LLP</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind-config.js"></script>
+  <link rel="stylesheet" href="assets/css/site.css">
+
+  <style>
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #1C242F; }
+    ::-webkit-scrollbar-thumb { background: #436850; border-radius: 4px; }
+    .reveal {
+      opacity: 0;
+      transform: translateY(64px) scale(0.97);
+      transition: opacity 1.1s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 1.1s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active { opacity: 1; transform: translateY(0) scale(1); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { transition: opacity 0.3s ease; transform: none; }
+    }
+    .blueprint-grid {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+  </style>
+</head>
+
+<body class="bg-charcoal text-gray-200 font-normal antialiased selection:bg-accent selection:text-white">
+
+<!-- HEADER -->
+<header class="fixed w-full z-50 transition-all duration-300 backdrop-blur-md bg-charcoal/90 border-b border-white/10">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/images/logo.png" alt="Archineer Uganda LLP Logo" class="h-10 md:h-14 w-auto brightness-200">
+    </a>
+    <nav class="hidden lg:flex gap-8 text-xs tracking-widest text-gray-300 uppercase font-medium items-center">
+      <a href="index.html" class="hover:text-accent transition-colors">Home</a>
+      <a href="about.html" class="hover:text-accent transition-colors">About</a>
+      <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+      <a href="projects.html" class="hover:text-accent transition-colors">Projects</a>
+      <a href="blog.html" class="hover:text-accent transition-colors">Blog</a>
+      <a href="contact.html" class="border border-accent bg-accent text-charcoal px-4 py-2 font-bold">Contact</a>
+    </nav>
+    <button id="menu-btn" class="lg:hidden text-white focus:outline-none">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+      </svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden bg-charcoal border-t border-white/10">
+    <div class="flex flex-col px-6 py-6 space-y-6 text-sm uppercase tracking-widest text-gray-300 font-medium">
+      <a href="index.html" class="hover:text-accent">Home</a>
+      <a href="about.html" class="hover:text-accent">About</a>
+      <a href="services.html" class="hover:text-accent">Services</a>
+      <a href="projects.html" class="hover:text-accent">Projects</a>
+      <a href="blog.html" class="hover:text-accent">Blog</a>
+      <a href="contact.html" class="border border-accent bg-accent text-charcoal px-4 py-2 text-center font-bold">Contact</a>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<section class="pt-40 pb-20 bg-navy relative blueprint-grid border-b border-white/5">
+  <div class="absolute inset-0 bg-navy/90"></div>
+  <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+    <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-4">Initiate</h2>
+    <h1 class="text-4xl md:text-6xl font-display font-black text-white uppercase tracking-tighter mb-6">
+      Start a <span class="text-accent">Project</span>
+    </h1>
+    <p class="text-gray-400 max-w-2xl mx-auto text-lg">
+      Tell us what you're building. We'll take it from there.
+    </p>
+  </div>
+</section>
+
+<!-- CONTACT DETAILS -->
+<section class="py-32 bg-charcoal">
+  <div class="max-w-5xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12">
+
+      <!-- Left: Contact info -->
+      <div>
+        <h2 class="text-sm font-bold tracking-[0.2em] text-accent uppercase mb-6">Get in Touch</h2>
+        <h3 class="text-3xl font-display font-bold text-white mb-10">We're available.<br>Reach out directly.</h3>
+
+        <div class="space-y-8">
+          <div class="border-l-2 border-accent pl-6">
+            <p class="text-xs tracking-widest text-gray-500 uppercase mb-2 font-bold">Electronic Mail</p>
+            <a href="mailto:arch.ug@proton.me" class="text-white hover:text-accent transition-colors text-xl font-medium">arch.ug@proton.me</a>
+          </div>
+          <div class="border-l-2 border-white/10 pl-6">
+            <p class="text-xs tracking-widest text-gray-500 uppercase mb-2 font-bold">Direct Lines</p>
+            <p class="text-white text-lg font-medium">(+256) 781 724 547</p>
+            <p class="text-white text-lg font-medium">(+256) 700 238 218</p>
+            <p class="text-white text-lg font-medium mt-1">(+1) 240 354 5427</p>
+          </div>
+          <div class="border-l-2 border-white/10 pl-6">
+            <p class="text-xs tracking-widest text-gray-500 uppercase mb-2 font-bold">Based In</p>
+            <p class="text-white text-lg font-medium">Kampala, Uganda</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: What to expect -->
+      <div class="bg-darkgrey border border-white/5 p-10">
+        <h3 class="text-lg font-display font-bold text-white mb-6">What to Expect</h3>
+        <div class="space-y-6">
+          <div class="flex gap-4">
+            <span class="text-accent font-bold text-sm mt-0.5">01</span>
+            <div>
+              <p class="text-white font-medium mb-1">Initial Consultation</p>
+              <p class="text-gray-400 text-sm leading-relaxed">We discuss your brief, site conditions, budget range, and timeline. No commitment required.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="text-accent font-bold text-sm mt-0.5">02</span>
+            <div>
+              <p class="text-white font-medium mb-1">Proposal & Scope</p>
+              <p class="text-gray-400 text-sm leading-relaxed">We define the scope of services, deliverables, and fees clearly before any work begins.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <span class="text-accent font-bold text-sm mt-0.5">03</span>
+            <div>
+              <p class="text-white font-medium mb-1">Design & Execution</p>
+              <p class="text-gray-400 text-sm leading-relaxed">From concept through construction — we remain your single point of contact throughout.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-black text-gray-500 py-10 border-t border-white/10">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-xs tracking-widest uppercase font-medium">
+    <p>© 2026 Archineer Uganda LLP. All rights reserved.</p>
+    <div class="flex gap-6 mt-4 md:mt-0">
+      <a href="#" class="hover:text-white">Instagram</a>
+      <span>System: Operational</span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll([
+      'h2.text-sm, h3.text-3xl, h3.text-lg',
+      '.border-l-2',
+      '.bg-darkgrey .flex'
+    ].join(', ')).forEach(function (el) { el.classList.add('reveal'); });
+  });
+</script>
+<script>
+  document.getElementById("menu-btn").addEventListener("click", function () {
+    document.getElementById("mobile-menu").classList.toggle("hidden");
+  });
+</script>
+
+</body>
+</html>
