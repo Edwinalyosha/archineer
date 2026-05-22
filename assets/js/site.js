@@ -146,6 +146,41 @@
 })();
 
 
+// ─── Smooth Scroll (desktop only) ────────────────────────────────────────────
+(function () {
+  if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) return;
+
+  var target  = window.scrollY;
+  var current = window.scrollY;
+  var ease    = 0.07; // lower = slower/smoother
+  var raf     = null;
+
+  function tick() {
+    current += (target - current) * ease;
+    if (Math.abs(target - current) < 0.5) {
+      current = target;
+      window.scrollTo(0, current);
+      raf = null;
+      return;
+    }
+    window.scrollTo(0, current);
+    raf = requestAnimationFrame(tick);
+  }
+
+  window.addEventListener('wheel', function (e) {
+    e.preventDefault();
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    target  = Math.min(Math.max(target + e.deltaY, 0), max);
+    if (!raf) raf = requestAnimationFrame(tick);
+  }, { passive: false });
+
+  // Keep target in sync when scroll is moved by other means (keyboard, anchor links)
+  window.addEventListener('scroll', function () {
+    if (!raf) target = current = window.scrollY;
+  }, { passive: true });
+})();
+
+
 // ─── Scroll Reveal — with scroll-up reset ────────────────────────────────────
 // Observes all elements with class .reveal.
 // Elements animate in when entering the viewport.
