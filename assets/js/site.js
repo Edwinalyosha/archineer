@@ -92,7 +92,7 @@
     '</svg>';
   cur.style.cssText =
     'position:fixed;top:0;left:0;width:32px;height:32px;pointer-events:none;' +
-    'z-index:99999;transform:translate(-16px,-16px);transition:opacity 0.15s;opacity:0;';
+    'z-index:2147483647;transform:translate(-16px,-16px);transition:opacity 0.15s;opacity:0;';
   document.body.appendChild(cur);
 
   document.addEventListener('mousemove', function (e) {
