@@ -70,14 +70,11 @@
 (function () {
   if (window.innerWidth < 1024) return;
 
-  // Force cursor off on every element — inline style beats all stylesheets
   document.documentElement.style.setProperty('cursor', 'none', 'important');
-
   var style = document.createElement('style');
   style.textContent = '* { cursor: none !important; }';
   document.head.appendChild(style);
 
-  // Build crosshair div
   var cur = document.createElement('div');
   cur.id = 'eng-cursor';
   cur.setAttribute('aria-hidden', 'true');
@@ -95,9 +92,38 @@
     'z-index:2147483647;transform:translate(-16px,-16px);transition:opacity 0.15s;opacity:0;';
   document.body.appendChild(cur);
 
+  var svgEls = cur.querySelectorAll('circle, line');
+
+  function setCursorColor(color) {
+    svgEls.forEach(function (el) {
+      if (el.tagName === 'circle' && el.getAttribute('fill') !== 'none') {
+        el.setAttribute('fill', color);
+      } else {
+        el.setAttribute('stroke', color);
+      }
+    });
+  }
+
+  // Walk up the DOM to find the first non-transparent background, return its luminance
+  function bgLuminance(x, y) {
+    var el = document.elementFromPoint(x, y);
+    while (el && el !== document.documentElement) {
+      var bg = window.getComputedStyle(el).backgroundColor;
+      var m = bg.match(/rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*([\d.]+))?/);
+      if (m && (m[4] === undefined || parseFloat(m[4]) > 0.05)) {
+        var r = +m[1], g = +m[2], b = +m[3];
+        if (r + g + b > 0) return (0.299 * r + 0.587 * g + 0.114 * b) / 255;
+      }
+      el = el.parentElement;
+    }
+    return 0;
+  }
+
   document.addEventListener('mousemove', function (e) {
     cur.style.transform = 'translate(' + (e.clientX - 16) + 'px,' + (e.clientY - 16) + 'px)';
     cur.style.opacity = '1';
+    var lum = bgLuminance(e.clientX, e.clientY);
+    setCursorColor(lum > 0.4 ? '#436850' : 'rgba(255,255,255,0.9)');
   }, { passive: true });
 
   document.addEventListener('mouseleave', function () { cur.style.opacity = '0'; });
